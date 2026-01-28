@@ -29,7 +29,7 @@ namespace BankAccount
         
         public Account(string number, string holderName, decimal initialDeposit) : this(number, holderName)
         {
-            initialDeposit = Balance;
+            Deposit(initialDeposit);
         }
 
 
