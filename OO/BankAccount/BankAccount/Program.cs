@@ -6,6 +6,7 @@ namespace BankAccount
     {
         static void Main(string[] args)
         {
+            Account account = new Account();
 
             Console.Write("Enter the account number: ");
             string accountNumber = Console.ReadLine();
@@ -14,11 +15,11 @@ namespace BankAccount
             string holderName = Console.ReadLine();
 
             Console.Write("Is there an initial deposit (y/n)? ");
-            string initialDepositResponse = Console.ReadLine();
+            char initialDepositResponse = char.Parse(Console.ReadLine());
 
-            Account account = new Account(accountNumber, holderName);
+            account = new Account(accountNumber, holderName);
 
-            if (initialDepositResponse.ToLower() == "y")
+            if (initialDepositResponse == 'y')
             {
                 Console.Write("Enter the initial deposit amount: ");
                 decimal initialDeposit = decimal.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);

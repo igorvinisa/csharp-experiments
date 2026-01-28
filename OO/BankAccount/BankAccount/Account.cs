@@ -8,19 +8,30 @@ namespace BankAccount
 {
     public class Account
     {
-        private string _number;
-
         private const decimal WithdrawalFee = 5.00m;
+
+        public string Number { get; private set; }
         
         public decimal Balance { get; private set; }
 
         public string HolderName { get; set; }
+        
+        public Account()
+        {
+
+        }
 
         public Account(string number, string holderName)
         {
-            _number = number;
+            Number = number;
             HolderName = holderName;
         }
+        
+        public Account(string number, string holderName, decimal initialDeposit) : this(number, holderName)
+        {
+            initialDeposit = Balance;
+        }
+
 
         public void Deposit (decimal amount)
         {
@@ -34,7 +45,7 @@ namespace BankAccount
 
         public override string ToString()
         {
-            return $"Account: {_number}, Holder: {HolderName}, Balance: ${Balance:F2}";
+            return $"Account: {Number}, Holder: {HolderName}, Balance: ${Balance:F2}";
         }
     }
 }
