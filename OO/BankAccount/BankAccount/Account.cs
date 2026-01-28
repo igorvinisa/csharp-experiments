@@ -32,7 +32,6 @@ namespace BankAccount
             Deposit(initialDeposit);
         }
 
-
         public void Deposit (decimal amount)
         {
             Balance += amount;
