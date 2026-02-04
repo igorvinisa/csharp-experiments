@@ -27,7 +27,7 @@
             {
                 Console.Write(diagonalElements[i] + " ");
             }
-
+            Console.WriteLine();
             Console.WriteLine("Negative numbers count: " + MatrixOperations.GetNegativeElementsCount(matrix));
 
         }
