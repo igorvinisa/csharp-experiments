@@ -1,10 +1,12 @@
-﻿namespace IncreaseSalary
+﻿using System.Globalization;
+
+namespace IncreaseSalary
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            Console.Write("How many employees will be registered?");
+            Console.Write("How many employees will be registered? ");
 
             int n = int.Parse(Console.ReadLine());
 
@@ -12,24 +14,27 @@
 
             for (int i = 1; i <= n; i++)
             {
-                Console.WriteLine($"Employee #{i + 1}:");
-                Console.Write("Id:");
+                Console.WriteLine();
+                Console.WriteLine($"Employee #{i}:");
+                Console.Write("Id: ");
                 long id = long.Parse(Console.ReadLine());
-                Console.Write("Name:");
+                Console.Write("Name: ");
                 string name = Console.ReadLine();
-                Console.Write("Salary:");
-                decimal salary = decimal.Parse(Console.ReadLine());
+                Console.Write("Salary: ");
+                decimal salary = decimal.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
                 employees.Add(new Employee(id, name, salary));
             }
 
-            Console.Write("Enter the employee id that will have salary increase :");
+            Console.WriteLine();
+            Console.Write("Enter the employee id that will have salary increase: ");
             long searchId = long.Parse(Console.ReadLine());
-            Console.Write("Enter the percentage:");
-            decimal percentage = decimal.Parse(Console.ReadLine());
 
             Employee emp = employees.Find(e => e.Id == searchId);
             if (emp != null)
             {
+                Console.Write("Enter the percentage: ");
+                decimal percentage = decimal.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+
                 emp.IncreaseSalary(percentage);
             }
             else
@@ -42,7 +47,7 @@
             
             foreach (Employee e in employees)
             {
-                Console.WriteLine($"{e.Id}, {e.Name}, {e.Salary:F2}");
+                Console.WriteLine($"{e.Id}, {e.Name}, " + e.Salary.ToString("F2", CultureInfo.InvariantCulture));
             }
         }
     }
