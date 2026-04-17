@@ -23,9 +23,6 @@ namespace MatrixPositionOperations
 
             int numberForMatch = int.Parse(Console.ReadLine());
 
-            int[] position;
-            int? left, right, up, down;
-
             for (int line = 0; line < matrix.GetLength(0); line++)
             {
                 for (int column = 0; column < matrix.GetLength(1); column++)
