@@ -29,5 +29,24 @@ namespace SocialPosts.Entities
         {
             Comments.Remove(comment);
         }
+
+        public override string ToString()
+        {
+            StringBuilder str = new StringBuilder();
+
+            str.AppendLine(Title);
+            str.Append(Likes);
+            str.Append(" Like - ");
+            str.AppendLine(Moment.ToString("dd/MM/yyyy HH:mm:ss"));
+            str.AppendLine(Content);
+            str.AppendLine("Comments:");
+            
+            foreach (Comment comment in Comments)
+            {
+                str.AppendLine(comment.Text);
+            }
+
+            return str.ToString();
+        }
     }
 }

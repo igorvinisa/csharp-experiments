@@ -45,15 +45,7 @@ namespace SocialPosts
 
             foreach (Post post in posts)
             {
-                Console.WriteLine(post.Title);
-                Console.WriteLine($"{post.Likes} Likes - { DateTime.SpecifyKind(post.Moment, DateTimeKind.Local) }");
-                Console.WriteLine(post.Content);
-                Console.WriteLine("Comments:");
-                
-                foreach (Comment comment in post.Comments)
-                    Console.WriteLine(comment.Text);
-
-                Console.WriteLine();
+                Console.WriteLine(post);
             }
         }
     }
